@@ -1,0 +1,38 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        mapeament = {}
+        i = 0
+        while i < len(nums):
+            current = nums[i]
+            x = target - current
+            i += 1
+            if x in mapeament:
+                return [nums.index(current), nums.index(x)]
+            mapeament[current] = i
+        return None
+        
+# testes:
+
+class Two_sum_testes(unittest.TestCase):
+
+    def test_A(self):
+        self.assertEqual(
+            twosum([1, 2, 3], 5),
+            [2, 1]
+        )
+
+    def test_B(self):
+        self.assertEqual(
+            twosum([4, -2, 5, 0, 6, 3, 2, 7], 1),
+            [5, 1]
+        )
+
+    def test_C(self):
+        self.assertEqual(
+            twosum([3, 3], 6),
+            [0, 1]
+        )
+
+
+if __name__ == '__main__':
+    unittest.main()
